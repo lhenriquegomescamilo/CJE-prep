@@ -1,4 +1,6 @@
-These plugins will be automaticaly installed:
+All plugins on this file will be automaticaly installed.
+
+These plugins are sugested on Certification Exam Study Guide for the CJE test:
 
 • Amazon EC2 Plugin: ec2
 • Build Pipeline Plugin: build-pipeline-plugin
@@ -25,3 +27,9 @@ These plugins will be automaticaly installed:
 • SMS Notification Plugin: sms
 • Script Security Plugin: script-security
 • Skype Plugin: skype-notifier
+
+
+
+This plugin is my pick because I like it:
+
+• Green Balls: greenballs
