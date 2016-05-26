@@ -12,11 +12,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 			v.cpus = 2
 		end	
 		
-		jenkins.vm.provision "shell" do |s|
-			# replace Windows line endings with Unix line endings
-			s.binary = true
-		end
-		
 		jenkins.vm.hostname = "jenkins"
 		jenkins.vm.synced_folder "scripts", "/vagrant/scripts"
 		
