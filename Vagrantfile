@@ -2,7 +2,7 @@ VAGRANTFILE_API_VERSION = "2"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 	
-	config.vm.box = "debian/jessie64"
+	config.vm.box = "sincerely/trusty64"
 	config.vm.provision "shell", path: "scripts/provision_script.sh"
 	
 	config.vm.define "jenkins" do |jenkins|
