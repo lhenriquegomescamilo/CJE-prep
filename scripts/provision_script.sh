@@ -4,11 +4,16 @@ echo "192.168.2.3 db-server" >> /etc/hosts
 echo "192.168.2.7 devtools" >> /etc/hosts
 
 # Install java, zip, unzip, git and upgrade everything
-echo "deb http://ppa.launchpad.net/webupd8team/java/ubuntu trusty main" > /etc/apt/sources.list.d/webupd8team-java.list
-echo "deb-src http://ppa.launchpad.net/webupd8team/java/ubuntu trusty main" >> /etc/apt/sources.list.d/webupd8team-java.list
-apt-key adv --keyserver keyserver.ubuntu.com --recv-keys EEA14886
+apt-get -y -q update
+apt-get -y -q upgrade
+apt-get -y -q install software-properties-common htop
+add-apt-repository ppa:webupd8team/java
+apt-get -y -q update
+echo oracle-java8-installer shared/accepted-oracle-license-v1-1 select true | sudo /usr/bin/debconf-set-selections
+apt-get -y -q install oracle-java8-installer
+update-java-alternatives -s java-8-oracle
 
-apt-get update && apt-get -y install oracle-java8-installer zip unzip git
+apt-get update && apt-get -y install zip unzip git
 apt-get upgrade
 
 # move to right directory
@@ -31,10 +36,11 @@ mv jenkins.war tomcat7/webapps/
 # Copy tomcat startup script to init.d
 cp /vagrant/scripts/tomcat.sh /etc/init.d/
 chmod 755 /etc/init.d/tomcat.sh
-chmod 755 /opt/server/tomcat7/*.sh
+chmod 755 /opt/server/tomcat7/bin/*.sh
 
 # Start tomcat
-/etc/init.d/tomcat restart
+/etc/init.d/tomcat.sh restart
 
 # Jenkins stuff (Install plugins...)
-./jenkins.sh
+chmod 755 /vagrant/scripts/jenkins.sh
+/vagrant/scripts/jenkins.sh
