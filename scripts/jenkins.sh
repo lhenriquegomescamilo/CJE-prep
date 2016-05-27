@@ -1,3 +1,5 @@
+sleep 20
+
 # Download Jenkins-cli
 cd /opt/server/
 wget http://localhost:8080/jenkins/jnlpJars/jenkins-cli.jar
