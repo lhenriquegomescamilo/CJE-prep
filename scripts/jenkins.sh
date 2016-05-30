@@ -1,5 +1,6 @@
-sleep 20
-
+echo "try to sleep"
+sleep 20s
+echo "awaken"
 # Download Jenkins-cli
 cd /opt/server/
 wget http://localhost:8080/jenkins/jnlpJars/jenkins-cli.jar

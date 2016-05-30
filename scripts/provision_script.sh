@@ -1,7 +1,6 @@
-# Include hosts in the /etc/hosts
-echo "192.168.2.2 esec-server" >> /etc/hosts
-echo "192.168.2.3 db-server" >> /etc/hosts
-echo "192.168.2.7 devtools" >> /etc/hosts
+# fix files edited in windows with ^M at the end of files
+sed -i -e 's/\r$//' /vagrant/scripts/*
+sed -i -e 's/\r$//' /vagrant/files/*
 
 # Install java, zip, unzip, git and upgrade everything
 apt-get -y -q update
@@ -15,6 +14,9 @@ update-java-alternatives -s java-8-oracle
 
 apt-get update && apt-get -y install zip unzip git
 apt-get upgrade
+
+# Install Maven
+/vagrant/scripts/maven_config.sh
 
 # move to right directory
 cd /opt/
@@ -33,14 +35,13 @@ wget http://mirrors.jenkins-ci.org/war-stable/1.625.2/jenkins.war
 # Copy Jenkins to Tomcat
 mv jenkins.war tomcat7/webapps/
 
-# Copy tomcat startup script to init.d
-cp /vagrant/scripts/tomcat.sh /etc/init.d/
-chmod 755 /etc/init.d/tomcat.sh
-chmod 755 /opt/server/tomcat7/bin/*.sh
+# Configure and start tomcat
+chmod 755 /vagrant/scripts/tomcat_config.sh
+sudo /vagrant/scripts/tomcat_config.sh
 
-# Start tomcat
-/etc/init.d/tomcat.sh restart
-
-# Jenkins stuff (Install plugins...)
+# Configure Jenkins (Install plugins, create jobs...)
 chmod 755 /vagrant/scripts/jenkins.sh
-/vagrant/scripts/jenkins.sh
+sudo /vagrant/scripts/jenkins.sh
+
+# Restarts machine
+shutdown -r now
