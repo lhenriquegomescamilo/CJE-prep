@@ -7,7 +7,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 	config.vm.synced_folder "scripts", "/vagrant/scripts"
 	config.vm.synced_folder "files", "/vagrant/files"
 	config.vm.provision "shell", path: "scripts/provision_script.sh"
-	
+	config.vm.provision :reload	
+
 	config.vm.define "jenkins" do |jenkins|
 		config.vm.provider "virtualbox" do |v|
 			v.name = "jenkins"

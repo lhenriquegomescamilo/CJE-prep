@@ -16,7 +16,8 @@ apt-get update && apt-get -y install zip unzip git
 apt-get upgrade
 
 # Install Maven
-/vagrant/scripts/maven_config.sh
+chmod 755 /vagrant/scripts/maven_config.sh
+sudo /vagrant/scripts/maven_config.sh
 
 # move to right directory
 cd /opt/
@@ -42,6 +43,3 @@ sudo /vagrant/scripts/tomcat_config.sh
 # Configure Jenkins (Install plugins, create jobs...)
 chmod 755 /vagrant/scripts/jenkins.sh
 sudo /vagrant/scripts/jenkins.sh
-
-# Restarts machine
-shutdown -r now

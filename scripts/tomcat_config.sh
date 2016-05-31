@@ -7,4 +7,5 @@ chmod 755 /opt/server/tomcat7/bin/*.sh
 cp /vagrant/files/server.xml /opt/server/tomcat7/conf/
 
 # Start tomcat
+update-rc.d tomcat.sh defaults
 sudo /etc/init.d/tomcat.sh start

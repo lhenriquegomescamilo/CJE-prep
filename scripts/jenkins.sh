@@ -1,5 +1,5 @@
 echo "try to sleep"
-sleep 20s
+sleep 140s
 echo "awaken"
 # Download Jenkins-cli
 cd /opt/server/
