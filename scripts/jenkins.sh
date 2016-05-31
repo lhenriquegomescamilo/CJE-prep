@@ -22,7 +22,6 @@ fi
 java -jar /opt/server/jenkins-cli.jar -s http://127.0.0.1:8080 safe-restart;
 
 
-# Creates and run Jobs
+# Creates Jobs (maven must be configured before run)
 java -jar jenkins-cli.jar -s http://127.0.0.1:8080 create-job 'Maven with tests' < /vagrant/files/Job1.xml
-java -jar jenkins-cli.jar -s http://127.0.0.1:8080 build 'Maven with tests'
 
