@@ -124,7 +124,15 @@
 
       <Host name="localhost"  appBase="webapps"
             unpackWARs="true" autoDeploy="true">
-
+			
+			<Context path="" docBase="jenkins">
+				<!-- Default set of monitored resources -->
+				<WatchedResource>WEB-INF/web.xml</WatchedResource>
+			</Context>
+			<Context path="ROOT" docBase="ROOT">
+				<!-- Default set of monitored resources -->
+				<WatchedResource>WEB-INF/web.xml</WatchedResource>
+			</Context>
         <!-- SingleSignOn valve, share authentication between web applications
              Documentation at: /docs/config/valve.html -->
         <!--

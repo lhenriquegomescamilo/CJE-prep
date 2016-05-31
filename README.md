@@ -23,7 +23,7 @@ This `vagrant up` command will run for a long time (up to a few hours on the fir
 
 Fortunately, most tools are instaled/updated with the scripts, but a few configurations may be necessary to use Jenkins (that's the whole point, isn't it? prepare for the CJE? Sometimes I think I forget that). Until now, these are the necessary configurations:
 
-* Maven instalation. Go to the [configuration panel](http://127.0.0.1:8080/jenkins/configure) -> Maven -> Maven Instalations:
+* Maven instalation. Go to the [configuration panel](http://127.0.0.1:8080/configure) -> Maven -> Maven Instalations:
   1. Name: any name you like. I use 'maven 3.3.9'
   2. Install automatically: uncheck
   3. MAVEN_HOME: '/opt/tools/maven/'
