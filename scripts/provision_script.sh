@@ -4,6 +4,7 @@ sed -i -e 's/\r$//' /vagrant/files/*
 
 # Install java, zip, unzip, git and upgrade everything
 apt-get -y -q update
+apt-mark hold grub-pc
 apt-get -y -q upgrade
 apt-get -y -q install software-properties-common htop
 add-apt-repository ppa:webupd8team/java
